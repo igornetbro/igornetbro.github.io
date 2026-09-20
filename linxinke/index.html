@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="邻信客-本地生活服务与邻里互助平台。提供家政保洁、维修安装、跑腿代购及社区团购服务，连接邻里，让生活更简单便捷。">
+    <meta name="keywords" content="邻信客, 本地生活, 邻里互助, 家政保洁, 维修安装, 跑腿代购">
+    <title>邻信客-本地生活服务与邻里互助平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00BFA5; /* 邻里绿 */
+            --primary-dark: #00897B;
+            --secondary-color: #FF6F00; /* 行动橙 */
+            --bg-color: #F5F7FA;
+            --card-bg: #FFFFFF;
+            --text-main: #333333;
+            --text-light: #757575;
+            --border-radius: 12px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 14px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 191, 165, 0.1);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 191, 165, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #E0F2F1 0%, #FFFFFF 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .search-bar {
+            background: white;
+            padding: 10px;
+            border-radius: 50px;
+            display: inline-flex;
+            box-shadow: var(--shadow-md);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .search-bar input {
+            border: none;
+            flex: 1;
+            padding: 12px 20px;
+            font-size: 16px;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .search-bar button {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Service Categories */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(0, 191, 165, 0.2);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 191, 165, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+        }
+
+        .category-card h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .category-card p {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .feature-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .feature-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .feature-list {
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            color: var(--primary-color);
+            margin-right: 15px;
+            margin-top: 4px;
+        }
+
+        .feature-text h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .feature-text p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .feature-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* How It Works */
+        .steps {
+            padding: 80px 0;
+            background-color: #FAFAFA;
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background: #E0E0E0;
+            z-index: 0;
+        }
+
+        .step-item {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex: 1;
+            padding: 0 10px;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            box-shadow: 0 0 0 8px white;
+        }
+
+        .step-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .step-item p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .faq-item {
+            border: 1px solid #EEE;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .faq-item h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .faq-item p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background: #263238;
+            color: #B0BEC5;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #37474F;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 15px;
+            }
+            
+            nav {
+                display: none; /* Simplify for mobile */
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .feature-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .steps-container::before {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .search-bar {
+                flex-direction: column;
+                border-radius: 12px;
+            }
+
+            .search-bar input {
+                width: 100%;
+                border-bottom: 1px solid #eee;
+                border-radius: 0;
+                margin-bottom: 10px;
+            }
+            
+            .search-bar button {
+                width: 100%;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                邻信客<span>本地生活</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">家政保洁</a></li>
+                    <li><a href="#">维修安装</a></li>
+                    <li><a href="#">跑腿代购</a></li>
+                    <li><a href="#">社区团购</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">发布需求</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>连接邻里，<br><span class="highlight">让生活更简单</span></h1>
+                <p>邻信客是您身边的本地生活服务平台，提供专业、可靠、透明的邻里互助服务，无论是家庭保洁还是紧急维修，只需一键，师傅上门。</p>
+                <div class="search-bar">
+                    <input type="text" placeholder="搜索您需要的服务，例如：油烟机清洗、管道疏通...">
+                    <button type="button">立即搜索</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Categories -->
+        <section class="container">
+            <div class="section-title">
+                <h2>热门服务分类</h2>
+                <p>覆盖全场景，满足您日常生活的各种需求</p>
+            </div>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="icon-box">🏠</div>
+                    <h3>家政保洁</h3>
+                    <p>日常保洁、深度清洁、家电清洗</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon-box">🔧</div>
+                    <h3>维修安装</h3>
+                    <p>水电维修、家具组装、门窗更换</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon-box">🛵</div>
+                    <h3>跑腿代购</h3>
+                    <p>代买代送、排队取号、文件传递</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon-box">🚗</div>
+                    <h3>搬家运输</h3>
+                    <p>同城搬家、大件运输、车辆租赁</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon-box">🧹</div>
+                    <h3>宠物服务</h3>
+                    <p>上门遛狗、宠物洗澡、寄养陪护</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon-box">🎨</div>
+                    <h3>便民维修</h3>
+                    <p>疏通下水、换锁修锁、灯具安装</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="feature-layout">
+                    <div class="feature-content">
+                        <h2>为什么选择邻信客？</h2>
+                        <p>我们致力于打造一个安全、高效的邻里互助生态圈。通过严格的认证体系和透明的服务流程，让您每一次服务体验都安心无忧。</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">
+                                    <h4>实名认证，安全放心</h4>
+                                    <p>所有服务人员均经过身份证、健康证及技能培训认证，确保服务质量与个人安全。</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">
+                                    <h4>明码标价，无隐形消费</h4>
+                                    <p>下单前即可查看详细报价，服务过程中无任何额外收费，拒绝漫天要价。</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">
+                                    <h4>极速响应，准时上门</h4>
+                                    <p>系统智能调度，承诺30分钟内响应，约定时间内准时到达您的指定地点。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-image">
+                        <img src="https://picsum.photos/seed/neighbor/600/400.jpg" alt="邻里互助场景" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="steps">
+            <div class="container">
+                <div class="section-title">
+                    <h2>简单四步，享受服务</h2>
+                    <p>无需繁琐流程，快速连接专业服务人员</p>
+                </div>
+                <div class="steps-container">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <h3>发布需求</h3>
+                        <p>选择服务类型，填写地址和时间，一键发布</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <h3>查看报价</h3>
+                        <p>系统自动匹配附近优质师傅，查看详细报价</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <h3>确认下单</h3>
+                        <p>在线支付定金，确认服务人员信息</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <h3>验收付款</h3>
+                        <p>服务完成后验收，确认满意后支付尾款</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题</h2>
+                    <p>关于邻信客服务，您可能关心的问题解答</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>如何确认服务人员的身份？</h4>
+                        <p>所有入驻邻信客的服务人员都需进行严格的实名认证和背景审查，您可以在订单详情中查看其服务者的认证信息。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>如果服务不满意怎么办？</h4>
+                        <p>我们提供售后保障。如果您对服务结果不满意，可申请退款或要求免费重做，平台客服将第一时间介入处理。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>是否支持同城急送？</h4>
+                        <p>支持。我们提供同城急送、加急维修等服务，具体时效取决于距离和服务类型，下单时可查看预计到达时间。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>如何成为邻信客的服务者？</h4>
+                        <p>您可以下载邻信客APP或通过官网申请成为服务者。提交相关资质证明后，通过审核即可开始接单。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>邻信客</h3>
+                    <p>专注于本地生活服务的邻里互助平台，致力于提升社区生活品质，连接每一个温暖的瞬间。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>服务项目</h4>
+                    <ul>
+                        <li><a href="#">家政保洁</a></li>
+                        <li><a href="#">维修安装</a></li>
+                        <li><a href="#">搬家运输</a></li>
+                        <li><a href="#">跑腿代购</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">平台介绍</a></li>
+                        <li><a href="#">服务保障</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>客户支持</h4>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">服务协议</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 邻信客本地生活服务平台 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
