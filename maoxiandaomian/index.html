@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="冒险岛免费外挂资源站提供安全稳定的冒险岛辅助工具、自动挂机脚本及技能释放插件，帮助玩家提升游戏效率，探索无限游戏乐趣。">
+    <meta name="keywords" content="冒险岛免费外挂,冒险岛辅助,冒险岛挂机脚本,冒险岛外挂下载,冒险岛工具">
+    <title>冒险岛免费外挂 - 高效辅助工具与游戏攻略平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #5c3a21;
+            --secondary-color: #d4a017;
+            --accent-color: #ff6b6b;
+            --bg-color: #f4f1ea;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+        }
+
+        .btn-download {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: #b8860b;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #8b4513 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .tool-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .tool-img-placeholder {
+            height: 160px;
+            background-color: #e0e0e0;
+            position: relative;
+        }
+
+        .tool-img-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .tool-content {
+            padding: 20px;
+        }
+
+        .tool-title {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .tool-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .tool-features {
+            margin-bottom: 16px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .tool-features li {
+            margin-bottom: 4px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .tool-features li::before {
+            content: "•";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .btn-card {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background-color: #f0f0f0;
+            color: var(--text-main);
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn-card:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Safety & Guide Section */
+        .guide-section {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+        }
+
+        .guide-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .guide-content p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .step-item {
+            text-align: center;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: var(--border-radius);
+            border: 1px solid #eee;
+        }
+
+        .step-num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: rgba(212, 160, 23, 0.3);
+            margin-bottom: 10px;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        details {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            position: relative;
+            list-style: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+            position: absolute;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            font-weight: 300;
+        }
+
+        details[open] summary::after {
+            content: "-";
+        }
+
+        .faq-content {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: rgba(255,255,255,0.8);
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            color: white;
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+            
+            nav ul {
+                margin: 15px 0;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"></path><path d="M12 2v20"></path><path d="m4.93 4.93 14.14 14.14"></path><path d="m19.07 4.93-14.14 14.14"></path></svg>
+                樱花<span>辅助</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">最新工具</a></li>
+                    <li><a href="#">使用教程</a></li>
+                    <li><a href="#">社区论坛</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn-download">立即下载</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>冒险岛免费外挂 - 极速挂机，轻松升级</h1>
+        <p>专为冒险岛玩家打造的安全辅助工具，支持自动挂机、自动打宝、一键连击，解放双手，畅游枫之岛。</p>
+        <div class="hero-tags">
+            <span class="tag">防封号技术</span>
+            <span class="tag">免费下载</span>
+            <span class="tag">7x24在线</span>
+        </div>
+        <a href="#tools" class="btn-download" style="background: white; color: var(--primary-color);">查看工具列表</a>
+    </section>
+
+    <main>
+        <!-- Tools Section -->
+        <section id="tools">
+            <div class="section-title">
+                <h2>热门辅助工具</h2>
+                <a href="#" style="color: var(--secondary-color); font-size: 0.9rem;">查看全部 &rarr;</a>
+            </div>
+            
+            <div class="tools-grid">
+                <!-- Tool 1 -->
+                <article class="tool-card">
+                    <div class="tool-img-placeholder">
+                        <img src="https://picsum.photos/seed/mh1/400/250" alt="自动挂机脚本">
+                        <span class="badge">热销</span>
+                    </div>
+                    <div class="tool-content">
+                        <h3 class="tool-title">全自动挂机王 V3.0</h3>
+                        <p class="tool-desc">支持所有职业自动走位、自动释放技能，智能识别BOSS机制，挂机效率提升300%。</p>
+                        <ul class="tool-features">
+                            <li>智能寻路，拒绝卡墙</li>
+                            <li>自动拾取，一键整理背包</li>
+                            <li>防检测，稳定不掉线</li>
+                        </ul>
+                        <a href="#" class="btn-card">下载客户端</a>
+                    </div>
+                </article>
+
+                <!-- Tool 2 -->
+                <article class="tool-card">
+                    <div class="tool-img-placeholder">
+                        <img src="https://picsum.photos/seed/mh2/400/250" alt="打宝辅助">
+                        <span class="badge">推荐</span>
+                    </div>
+                    <div class="tool-content">
+                        <h3 class="tool-title">疯狂打宝者 Pro</h3>
+                        <p class="tool-desc">专注于副本刷怪与材料收集，自动完成每日悬赏，挂机也能赚大钱。</p>
+                        <ul class="tool-features">
+                            <li>支持自定义挂机地图</li>
+                            <li>自动吃药，血量自动管理</li>
+                            <li>支持多开，效率翻倍</li>
+                        </ul>
+                        <a href="#" class="btn-card">下载客户端</a>
+                    </div>
+                </article>
+
+                <!-- Tool 3 -->
+                <article class="tool-card">
+                    <div class="tool-img-placeholder">
+                        <img src="https://picsum.photos/seed/mh3/400/250" alt="技能连击器">
+                    </div>
+                    <div class="tool-content">
+                        <h3 class="tool-title">极速连击器</h3>
+                        <p class="tool-desc">针对战士、龙神等高频率技能职业设计，实现毫秒级技能释放，伤害最大化。</p>
+                        <ul class="tool-features">
+                            <li>自定义按键映射</li>
+                            <li>技能CD智能检测</li>
+                            <li>释放记录回放功能</li>
+                        </ul>
+                        <a href="#" class="btn-card">下载客户端</a>
+                    </div>
+                </article>
+
+                <!-- Tool 4 -->
+                <article class="tool-card">
+                    <div class="tool-img-placeholder">
+                        <img src="https://picsum.photos/seed/mh4/400/250" alt="地图传送">
+                    </div>
+                    <div class="tool-content">
+                        <h3 class="tool-title">全图传送门</h3>
+                        <p class="tool-desc">内置全地图传送功能，告别跑图烦恼，一键直达任务地点或练级地图。</p>
+                        <ul class="tool-features">
+                            <li>支持快捷键切换地图</li>
+                            <li>地图列表实时更新</li>
+                            <li>占用内存极小</li>
+                        </ul>
+                        <a href="#" class="btn-card">下载客户端</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Safety Guide Section -->
+        <section class="guide-section">
+            <div class="section-title">
+                <h2>安全使用指南</h2>
+            </div>
+            <div class="guide-content">
+                <p>在使用任何游戏辅助工具时，安全始终是第一位的。我们提供经过严格测试的绿色客户端，并为您提供以下安全建议：</p>
+                <ul style="margin-left: 20px; margin-top: 10px; color: var(--text-light);">
+                    <li>请勿在游戏内进行任何形式的货币交易，以免账号被封。</li>
+                    <li>使用前请关闭杀毒软件的实时防护，防止误报拦截。</li>
+                    <li>定期更新辅助软件，以适应游戏版本的更新。</li>
+                </ul>
+                <div class="steps">
+                    <div class="step-item">
+                        <div class="step-num">1</div>
+                        <h4>选择工具</h4>
+                        <p style="font-size: 0.85rem;">根据您的职业和需求选择合适的辅助类型。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num">2</div>
+                        <h4>安装运行</h4>
+                        <p style="font-size: 0.85rem;">下载后解压，双击运行，无需安装复杂环境。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num">3</div>
+                        <h4>开启游戏</h4>
+                        <p style="font-size: 0.85rem;">先启动冒险岛游戏，再启动辅助软件即可。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-container">
+            <div class="section-title">
+                <h2>常见问题 (FAQ)</h2>
+            </div>
+            <details>
+                <summary>使用辅助会被封号吗？</summary>
+                <div class="faq-content">
+                    我们采用的底层驱动技术和行为模拟算法是目前市面上较为稳定的方案。虽然任何外挂都无法100%保证绝对安全，但本站提供的工具经过大量玩家测试，封号率极低。请务必保持账号等级与操作习惯的正常，避免短时间内大量异常数据。
+                </div>
+            </details>
+            <details>
+                <summary>支持哪些版本的冒险岛？</summary>
+                <div class="faq-content">
+                    目前主要支持最新版本的冒险岛客户端（包括国际服与国服主流版本）。如果您使用的是非常古老的版本，可能无法兼容，请查看具体工具页面的说明。
+                </div>
+            </details>
+            <details>
+                <summary>下载需要收费吗？</summary>
+                <div class="faq-content">
+                    本站提供的所有辅助工具均为免费下载，包含基础版和高级版功能。我们通过广告支持服务器的维护与更新，请放心使用。
+                </div>
+            </details>
+            <details>
+                <summary>工具支持多开吗？</summary>
+                <div class="faq-content">
+                    部分高级工具支持多开，可以同时控制多个角色进行练级。具体的多开限制请参考工具介绍页面。
+                </div>
+            </details>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">隐私政策</a>
+            <a href="#">联系客服</a>
+            <a href="#">免责声明</a>
+        </div>
+        <p>&copy; 2023 冒险岛辅助资源站. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">本站仅供学习交流使用，游戏版权归 Nexon 所有。</p>
+    </footer>
+
+</body>
+</html>
