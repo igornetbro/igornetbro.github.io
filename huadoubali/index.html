@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="花都巴黎资料库：全面收录花都巴黎相关的建筑风格、历史背景、设计理念及文化解析，提供详实的图文资料与学术参考。">
+    <meta name="keywords" content="花都巴黎, 建筑资料, 城市规划, 欧式风格, 装修设计">
+    <title>花都巴黎资料 - 城市建筑风格与设计解析库</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a3c5e;
+            --secondary-color: #cfa372;
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        nav a:hover, nav a.active {
+            opacity: 1;
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5282 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Stats Section */
+        .stats-bar {
+            background: var(--card-bg);
+            padding: 30px 0;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 900px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        /* Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-img-placeholder {
+            width: 100%;
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img-placeholder img {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            background-color: #eef2f7;
+            color: var(--primary-color);
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-link {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .card-link::after {
+            content: '→';
+            margin-left: 5px;
+            transition: margin-left 0.3s;
+        }
+
+        .card-link:hover::after {
+            margin-left: 10px;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .category-list li {
+            margin-bottom: 12px;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 8px;
+        }
+
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+
+        .category-list a:hover {
+            color: var(--secondary-color);
+        }
+
+        .count {
+            background: #eee;
+            color: #666;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+        }
+
+        /* Features List */
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-item {
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--secondary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2d3748;
+            color: #cbd5e0;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #4a5568;
+            font-size: 0.9rem;
+        }
+
+        /* Utility */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2c5282;
+        }
+        
+        .highlight-box {
+            background-color: #ebf8ff;
+            border-left: 4px solid #3182ce;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: #2c5282;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <span>◆</span> 花都巴黎资料库
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#architecture">建筑风格</a></li>
+                    <li><a href="#design">设计理念</a></li>
+                    <li><a href="#resources">资料下载</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>探索花都巴黎的独特魅力</h1>
+            <p>汇聚建筑美学、城市规划与生活艺术的综合资料库，为您提供详实的花都巴黎风格解析与参考。</p>
+        </div>
+    </div>
+
+    <main class="container">
+        
+        <!-- Stats Section -->
+        <section class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">收录案例</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">120+</div>
+                <div class="stat-label">高清图纸</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50k+</div>
+                <div class="stat-label">设计理念</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">在线更新</div>
+            </div>
+        </section>
+
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+            
+            <!-- Left Column -->
+            <div class="main-column">
+                
+                <!-- Introduction -->
+                <section id="intro">
+                    <div class="section-header">
+                        <h2 class="section-title">关于花都巴黎</h2>
+                    </div>
+                    <p style="margin-bottom: 20px;">
+                        “花都巴黎”通常指代一种融合了巴黎浪漫情调与花卉艺术氛围的居住或商业空间设计风格。这种风格强调自然元素的引入，如大面积的绿植、花卉装饰以及通透的采光，同时保留了古典欧式的建筑线条与色彩。
+                    </p>
+                    <div class="highlight-box">
+                        <strong>资料库说明：</strong> 本站旨在为室内设计师、建筑爱好者及业主提供关于此类风格的详实数据、色彩搭配方案及施工要点参考。
+                    </div>
+                </section>
+
+                <!-- Architecture Gallery -->
+                <section id="architecture">
+                    <div class="section-header">
+                        <h2 class="section-title">建筑风格解析</h2>
+                        <a href="#" class="card-link">查看更多</a>
+                    </div>
+                    <div class="info-grid">
+                        <article class="card">
+                            <div class="card-img-placeholder">
+                                <img src="https://picsum.photos/seed/arch1/400/300" alt="古典立面设计">
+                            </div>
+                            <div class="card-body">
+                                <span class="card-tag">外观设计</span>
+                                <h3 class="card-title">欧式古典立面元素</h3>
+                                <p class="card-desc">详细介绍罗马柱、拱门、浮雕在花都巴黎风格建筑中的应用及其结构力学基础。</p>
+                                <a href="#" class="card-link">阅读详情</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-img-placeholder">
+                                <img src="https://picsum.photos/seed/arch2/400/300" alt="园林景观布局">
+                            </div>
+                            <div class="card-body">
+                                <span class="card-tag">园林景观</span>
+                                <h3 class="card-title">法式园林与花境营造</h3>
+                                <p class="card-desc">解析几何对称布局与自然式景观的结合，重点介绍常绿灌木与季节性花卉的配置。</p>
+                                <a href="#" class="card-link">阅读详情</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-img-placeholder">
+                                <img src="https://picsum.photos/seed/arch3/400/300" alt="内部空间">
+                            </div>
+                            <div class="card-body">
+                                <span class="card-tag">内部空间</span>
+                                <h3 class="card-title">挑高大厅与水晶吊灯</h3>
+                                <p class="card-desc">探讨层高对空间感的影响，以及如何通过照明设计营造奢华而不失温馨的氛围。</p>
+                                <a href="#" class="card-link">阅读详情</a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Design Concepts -->
+                <section id="design">
+                    <div class="section-header">
+                        <h2 class="section-title">设计理念与色彩</h2>
+                    </div>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <h3>色彩心理学</h3>
+                            <p>采用米白、香槟金、深灰与墨绿作为主色调，营造出优雅、宁静且高级的视觉体验。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>材质运用</h3>
+                            <p>大量运用大理石、实木、丝绒面料与黄铜金属配件，强调触感与质感的双重享受。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>光影艺术</h3>
+                            <p>通过百叶窗与落地窗的组合，实现光影的流动变化，让室内外环境和谐共生。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>软装陈设</h3>
+                            <p>强调艺术品的点缀作用，如油画、雕塑与复古家具，提升空间的文化品位。</p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Column Sidebar -->
+            <aside class="sidebar">
+                
+                <!-- Quick Categories -->
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">资料分类</h3>
+                    <ul class="category-list">
+                        <li><a href="#">建筑图纸 <span class="count">128</span></a></li>
+                        <li><a href="#">装修案例 <span class="count">85</span></a></li>
+                        <li><a href="#">色彩搭配 <span class="count">45</span></a></li>
+                        <li><a href="#">施工工艺 <span class="count">32</span></a></li>
+                        <li><a href="#">风水布局 <span class="count">21</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Featured Resource -->
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">精选资料</h3>
+                    <div style="margin-bottom: 15px;">
+                        <img src="https://picsum.photos/seed/resource/300/200" alt="资料封面" style="width:100%; border-radius:4px;">
+                    </div>
+                    <h4 style="margin-bottom:10px;">2023年花都巴黎风格流行色板</h4>
+                    <p style="font-size:0.85rem; color:#666; margin-bottom:15px;">包含RGB与CMYK数值的专业色卡文件下载。</p>
+                    <a href="#" class="btn" style="width:100%; text-align:center;">下载资料</a>
+                </div>
+
+                <!-- FAQ -->
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">常见问题</h3>
+                    <details style="margin-bottom:10px; cursor:pointer;">
+                        <summary style="font-weight:600; font-size:0.9rem;">如何区分法式与花都巴黎风格？</summary>
+                        <p style="font-size:0.85rem; color:#666; margin-top:5px; padding-left:10px;">花都巴黎风格更强调“花”的自然流动感，而法式更偏向严谨的对称与宫廷感。</p>
+                    </details>
+                    <details style="margin-bottom:10px; cursor:pointer;">
+                        <summary style="font-weight:600; font-size:0.9rem;">这种风格适合小户型吗？</summary>
+                        <p style="font-size:0.85rem; color:#666; margin-top:5px; padding-left:10px;">可以通过简化装饰线条和利用镜面反射来适配小户型。</p>
+                    </details>
+                </div>
+
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于花都巴黎资料</h4>
+                    <p style="font-size:0.9rem; line-height:1.8;">
+                        我们致力于打造最全面、最专业的花都巴黎风格资料分享平台，为设计师和业主提供灵感与参考。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">网站地图</a></li>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务支持</h4>
+                    <ul>
+                        <li><a href="#">资料下载帮助</a></li>
+                        <li><a href="#">设计咨询</a></li>
+                        <li><a href="#">版权声明</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 花都巴黎资料库. All Rights Reserved. </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
