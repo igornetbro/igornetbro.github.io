@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="avlulu在线 - 沉浸式AVLULU在线体验平台，提供高清影视资源、实时互动娱乐及一站式内容管理服务。">
+    <meta name="keywords" content="avlulu在线, AVLULU, 在线娱乐, 影视平台, 实时互动">
+    <title>avlulu在线 - 沉浸式互动娱乐与影视资源平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6C5CE7;
+            --secondary-color: #A29BFE;
+            --accent-color: #FD79A8;
+            --dark-bg: #1e1e2e;
+            --card-bg: #2d2d42;
+            --text-main: #ffffff;
+            --text-muted: #a0a0b0;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 1rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, var(--primary-color), transparent);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(30, 30, 46, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 1rem 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+        }
+
+        .btn-login {
+            background-color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1e1e2e 0%, #2d2d42 100%);
+            overflow: hidden;
+            margin-bottom: 4rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(108, 92, 231, 0.15) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #a29bfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 92, 231, 0.6);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(108, 92, 231, 0.1);
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(108, 92, 231, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Content Showcase */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            background-color: #3d3d5c;
+            position: relative;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-sm {
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+
+        /* Info Section */
+        .info-section {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 3rem;
+            margin-bottom: 5rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .info-text h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .info-text p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .info-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .info-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* Footer */
+        footer {
+            background-color: #161622;
+            padding: 4rem 0 2rem;
+            margin-top: auto;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-wrapper { flex-direction: column; gap: 1rem; }
+            nav ul { gap: 1rem; font-size: 0.9rem; }
+            .info-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>AV</span>LULU
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">影视库</a></li>
+                    <li><a href="#">互动社区</a></li>
+                    <li><a href="#">创作者中心</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn-login">登录 / 注册</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>探索 AVLULU 在线 的无限可能</h1>
+                <p>汇聚全球优质视听内容，提供沉浸式在线体验。无论是高清影视、实时互动还是创意创作，AVLULU 都为您打造无缝连接的数字生活空间。</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary">开始浏览</button>
+                    <button class="btn btn-outline">了解服务</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="container">
+            <div class="features">
+                <div class="feature-card">
+                    <div class="icon-box">📺</div>
+                    <h3>海量影视库</h3>
+                    <p>收录数千部高清电影、电视剧及独家自制内容，支持多端同步播放。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">🤝</div>
+                    <h3>实时互动</h3>
+                    <p>打破屏幕隔阂，享受直播互动、弹幕评论与即时社交体验。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">🚀</div>
+                    <h3>极速流畅</h3>
+                    <p>采用先进流媒体技术，确保在任何网络环境下都能获得稳定画质。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">🔒</div>
+                    <h3>安全可靠</h3>
+                    <p>严格的内容审核机制与隐私保护政策，为您营造绿色健康的网络环境。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Showcase -->
+        <section class="container">
+            <h2 class="section-title">热门推荐</h2>
+            <div class="content-grid">
+                <!-- Card 1 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag">独家</span>
+                        <img src="https://picsum.photos/seed/avlulu1/400/250" alt="AVLULU 独家剧集封面">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">星际迷航：无限边界</h3>
+                        <div class="card-meta">
+                            <span>科幻 / 冒险</span>
+                            <span>更新至 S3</span>
+                        </div>
+                        <p class="card-desc">在遥远的未来，人类探索未知的宇宙边界，面对前所未有的挑战与机遇。</p>
+                        <div class="card-footer">
+                            <span class="btn-sm">立即观看</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/avlulu2/400/250" alt="AVLULU 热门电影封面">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">都市霓虹夜</h3>
+                        <div class="card-meta">
+                            <span>动作 / 犯罪</span>
+                            <span>2023</span>
+                        </div>
+                        <p class="card-desc">一场发生在繁华都市背后的惊心动魄的犯罪调查，揭示人性的复杂。</p>
+                        <div class="card-footer">
+                            <span class="btn-sm">立即观看</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag">直播</span>
+                        <img src="https://picsum.photos/seed/avlulu3/400/250" alt="AVLULU 实时互动封面">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">周末电竞之夜</h3>
+                        <div class="card-meta">
+                            <span>游戏</span>
+                            <span>直播中</span>
+                        </div>
+                        <p class="card-desc">顶级战队齐聚 AVLULU 赛场，为您带来精彩绝伦的竞技对决。</p>
+                        <div class="card-footer">
+                            <span class="btn-sm">进入直播间</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/avlulu4/400/250" alt="AVLULU 纪录片封面">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">自然的呼吸</h3>
+                        <div class="card-meta">
+                            <span>纪录片</span>
+                            <span>4K</span>
+                        </div>
+                        <p class="card-desc">跟随镜头深入原始森林，探索地球最纯净角落的生态奇观。</p>
+                        <div class="card-footer">
+                            <span class="btn-sm">立即观看</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Info & FAQ -->
+        <section class="container">
+            <div class="info-section">
+                <div class="info-grid">
+                    <div class="info-text">
+                        <h3>关于 AVLULU 在线</h3>
+                        <p>AVLULU 在线致力于构建下一代数字娱乐生态系统。我们整合了流媒体播放、社交互动与创作者工具，旨在为用户提供一站式的在线娱乐解决方案。</p>
+                        <p>无论您是追求视觉震撼的影迷，还是寻找灵感的创作者，AVLULU 都能满足您的需求。</p>
+                        <ul class="info-list">
+                            <li>支持 4K/8K 超高清画质</li>
+                            <li>智能推荐算法，精准匹配喜好</li>
+                            <li>多平台无缝切换，随时随地畅享</li>
+                        </ul>
+                    </div>
+                    <div class="info-faq">
+                        <h3 style="margin-bottom: 1.5rem; color: white;">常见问题</h3>
+                        <div class="faq-item">
+                            <div class="faq-question">如何开始使用 AVLULU 在线？</div>
+                            <div class="faq-answer">您只需点击页面顶部的“登录 / 注册”按钮，使用邮箱或社交账号即可快速创建账户并开始浏览内容。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">是否支持离线下载？</div>
+                            <div class="faq-answer">是的，AVLULU 在线会员享有专属的离线缓存功能，让您在无网络环境下也能观看收藏的内容。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">如何成为创作者？</div>
+                            <div class="faq-answer">您可以前往“创作者中心”提交申请，通过审核后即可上传视频、管理您的频道并接入广告分成。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="margin-bottom: 1rem; display: inline-block;">
+                        <span>AV</span>LULU
+                    </a>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">
+                        AVLULU 在线是您值得信赖的数字娱乐伙伴，致力于提供高品质、安全、便捷的在线服务体验。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>平台</h4>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">影视库</a></li>
+                        <li><a href="#">直播</a></li>
+                        <li><a href="#">下载客户端</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">support@avlulu.com</a></li>
+                        <li><a href="#">商务合作</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 AVLULU 在线. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = event.currentTarget.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
