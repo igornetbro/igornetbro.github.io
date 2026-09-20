@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="诗话网 - 中国古典诗歌与词话的数字图书馆，收录历代诗话、词话选本及古典文学研究资料，提供诗词赏析、名句检索与文学爱好者交流平台。">
+    <meta name="keywords" content="诗话, 中国古典文学, 诗词赏析, 唐诗宋词, 古典诗词, 词话选本, 诗话选, 文学资料">
+    <title>诗话-中国古典诗词与文学赏析数字图书馆</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #8e44ad;
+            --bg-color: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Georgia", serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 1rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .header-actions button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .header-actions button:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #fdfbf7 0%, #eef2f3 100%);
+            padding: 4rem 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-box button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0 2rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-box button:hover {
+            background-color: #732d91;
+        }
+
+        /* 分类导航条 */
+        .category-bar {
+            background-color: var(--card-bg);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        .category-list {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .category-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .category-item:hover {
+            color: var(--accent-color);
+        }
+
+        .category-item::before {
+            content: "•";
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .category-item:first-child::before {
+            content: "";
+        }
+
+        /* 主要内容区 */
+        main {
+            padding: 2rem 0 4rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: normal;
+        }
+
+        .section-title a:hover {
+            color: var(--accent-color);
+        }
+
+        /* 网格布局 */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        /* 诗词卡片 */
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .card-image {
+            height: 160px;
+            background-color: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.6);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .card-author {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .card-excerpt {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            border-top: 1px solid #f0f0f0;
+            padding-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        /* 重点推荐 */
+        .featured-layout {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .featured-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .featured-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .featured-content .meta {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .featured-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .quote-box {
+            background-color: #f8f5f2;
+            border-left: 4px solid #d4af37;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        .side-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .side-item {
+            display: flex;
+            gap: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .side-item:last-child {
+            border-bottom: none;
+        }
+
+        .side-num {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .side-text h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .side-text p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* 诗词展示区 */
+        .poem-section {
+            background-color: #fff;
+            padding: 3rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .poem-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .poem-author {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .poem-content {
+            font-size: 1.2rem;
+            line-height: 2;
+            letter-spacing: 0.1rem;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 常见问题 */
+        .faq-section {
+            background-color: #f4f4f4;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+
+            nav ul {
+                margin: 1rem 0;
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .grid-layout, .featured-layout, .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-layout {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 头部导航 -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                诗话<span>网</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">诗话选本</a></li>
+                    <li><a href="#">历代诗人</a></li>
+                    <li><a href="#">诗词检索</a></li>
+                    <li><a href="#">文学论坛</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button>登录</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首屏 Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>品读中国古典诗歌</h1>
+            <p>汇聚历代诗话、词话珍本，收录唐宋诗词与元曲名篇，为文学爱好者提供沉浸式的古典文学阅读体验。</p>
+            <div class="search-box">
+                <input type="text" placeholder="输入诗词名、作者或关键词（如：相思、杜甫）...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 分类导航 -->
+    <div class="category-bar">
+        <div class="container">
+            <ul class="category-list">
+                <li class="category-item">全部</li>
+                <li class="category-item">唐诗</li>
+                <li class="category-item">宋词</li>
+                <li class="category-item">元曲</li>
+                <li class="category-item">诗话</li>
+                <li class="category-item">词话</li>
+                <li class="category-item">文集</li>
+                <li class="category-item">注疏</li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="container">
+        
+        <!-- 重点推荐板块 -->
+        <section class="featured-layout">
+            <article class="featured-card">
+                <div class="featured-content">
+                    <h2>《六一诗话》：中国诗话的鼻祖</h2>
+                    <div class="meta">欧阳修 · 北宋 · 文学批评</div>
+                    <p>《六一诗话》是欧阳修所作的一部诗话著作，是中国文学批评史上第一部以“诗话”为名的著作。该书主要记录了作者与友人们关于诗歌创作的见解、轶事以及评品历代诗人作品的内容。书中提出了“状难写之景如在目前，含不尽之意见于言外”的艺术主张，对后世诗话体文学批评产生了深远影响。</p>
+                    <div class="quote-box">
+                        “圣俞诗笔老劲，操意甚苦。与客游，每得一句，则必哦咏极口，自谓天下无敌，然后书之。”
+                    </div>
+                    <p>书中记载了梅尧臣作诗的轶事，生动展现了北宋文坛的交流氛围。通过阅读《六一诗话》，我们可以窥见北宋时期诗歌审美标准的演变，以及文人之间切磋技艺的生动场景。</p>
+                    <a href="#" style="color: var(--accent-color); font-weight: bold;">阅读全文 &rarr;</a>
+                </div>
+            </article>
+            
+            <aside class="side-list">
+                <div class="side-item">
+                    <span class="side-num">01</span>
+                    <div class="side-text">
+                        <h4>《人间词话》</h4>
+                        <p>王国维 · 现代词学经典</p>
+                    </div>
+                </div>
+                <div class="side-item">
+                    <span class="side-num">02</span>
+                    <div class="side-text">
+                        <h4>《容斋随笔》</h4>
+                        <p>洪迈 · 历史与诗词随笔</p>
+                    </div>
+                </div>
+                <div class="side-item">
+                    <span class="side-num">03</span>
+                    <div class="side-text">
+                        <h4>《随园诗话》</h4>
+                        <p>袁枚 · 清代诗学理论</p>
+                    </div>
+                </div>
+                <div class="side-item">
+                    <span class="side-num">04</span>
+                    <div class="side-text">
+                        <h4>《石林诗话》</h4>
+                        <p>叶梦得 · 宋代诗话代表作</p>
+                    </div>
+                </div>
+            </aside>
+        </section>
+
+        <!-- 今日诗词 -->
+        <section>
+            <div class="section-title">
+                <span>每日一诗</span>
+                <a href="#">更多诗词 &rarr;</a>
+            </div>
+            <div class="poem-section">
+                <h2 class="poem-title">锦瑟</h2>
+                <div class="poem-author">【唐】李商隐</div>
+                <div class="poem-content">
+                    锦瑟无端五十弦，一弦一柱思华年。<br>
+                    庄生晓梦迷蝴蝶，望帝春心托杜鹃。<br>
+                    沧海月明珠有泪，蓝田日暖玉生烟。<br>
+                    此情可待成追忆，只是当时已惘然。
+                </div>
+            </div>
+        </section>
+
+        <!-- 热门诗话推荐 -->
+        <section>
+            <div class="section-title">
+                <span>热门诗话推荐</span>
+                <a href="#">查看榜单 &rarr;</a>
+            </div>
+            <div class="grid-layout">
+                <!-- 卡片 1 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag">经典</span>
+                        <img src="https://picsum.photos/seed/poetry1/400/250" alt="诗集封面">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">《唐诗三百首详析》</h3>
+                        <p class="card-author">蘅塘退士 编选</p>
+                        <p class="card-excerpt">收录唐代诗歌三百余首，包含五言古诗、七言古诗、五言律诗、七言律诗及五七言绝句。本书注释详尽，评析精辟，是学习唐诗的最佳入门读物。</p>
+                        <div class="card-footer">
+                            <span>阅读量: 12.5k</span>
+                            <span>更新: 2023-10</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 卡片 2 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag">研究</span>
+                        <img src="https://picsum.photos/seed/poetry2/400/250" alt="诗集封面">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">《宋词三百首》</h3>
+                        <p class="card-author">朱孝臧 编选</p>
+                        <p class="card-excerpt">宋词是宋代文学的最高成就。本书精选两宋名家词作，按词牌分类编排，旨在展现宋词婉约与豪放并存的独特艺术风貌。</p>
+                        <div class="card-footer">
+                            <span>阅读量: 9.8k</span>
+                            <span>更新: 2023-11</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 卡片 3 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag">鉴赏</span>
+                        <img src="https://picsum.photos/seed/poetry3/400/250" alt="诗集封面">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">《唐宋诗醇》</h3>
+                        <p class="card-author">清·乾隆御定</p>
+                        <p class="card-excerpt">清代宫廷选编的诗歌总集，汇集了唐宋时期最具代表性的诗作，由当时著名的学者进行注释和评点，具有极高的权威性。</p>
+                        <div class="card-footer">
+                            <span>阅读量: 8.2k</span>
+                            <span>更新: 2023-09</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 卡片 4 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag">笔记</span>
+                        <img src="https://picsum.photos/seed/poetry4/400/250" alt="诗集封面">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">《艺概》</h3>
+                        <p class="card-author">刘熙载</p>
+                        <p class="card-excerpt">刘熙载所著的文学理论著作，其中《诗概》部分对历代诗歌的风格、流派进行了精辟的概括，是研究中国古典诗学的必读文献。</p>
+                        <div class="card-footer">
+                            <span>阅读量: 7.5k</span>
+                            <span>更新: 2023-10</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 常见问题 -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-title">
+                    <span>关于诗话与诗词</span>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>什么是“诗话”？</h3>
+                        <p>诗话是中国古代评论诗歌、词曲的著作，体例不一。它不同于正史中的传记，也不同于经籍的注释，而是以随笔、笔记的形式，记录诗人的轶事、创作心得以及对作品的具体评点。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>如何开始阅读古典诗词？</h3>
+                        <p>建议从《唐诗三百首》或《宋词三百首》入手，先熟悉经典名篇。同时，阅读一些简单的诗词赏析书籍或诗话（如《人间词话》），有助于理解诗词背后的意象和情感。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>诗话与诗选有什么区别？</h3>
+                        <p>诗选是选录具体的诗词作品，侧重于作品的文本本身；而诗话则侧重于对作品、诗人及其创作背景的评论和议论，是“论诗之作”。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>为什么有些古诗词很难理解？</h3>
+                        <p>这通常与古文语法、历史典故以及当时的时代背景有关。多读、多查典故注释、多结合历史背景阅读，是理解古诗词的有效途径。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">诗话网致力于打造中国最专业的古典文学数字图书馆，为读者提供便捷的诗词检索、诗话阅读及文学交流服务。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>主要栏目</h4>
+                    <ul>
+                        <li><a href="#">唐诗三百首</a></li>
+                        <li><a href="#">宋词精选</a></li>
+                        <li><a href="#">元曲三百首</a></li>
+                        <li><a href="#">历代诗话</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">使用指南</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">投稿建议</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">订阅我们的电子报，获取每日诗词推荐。</p>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" placeholder="您的邮箱" style="padding: 5px; border: none; border-radius: 3px; width: 100%;">
+                        <button style="padding: 5px 10px; background: var(--accent-color); border: none; color: white; cursor: pointer; border-radius: 3px;">订阅</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 诗话网 版权所有 | 仅供学习交流使用</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                      </html>
