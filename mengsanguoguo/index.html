@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="梦三国郭嘉出装攻略：为您提供最全面的梦三国郭嘉出装推荐、加点技巧、连招教学及对局思路，助您轻松上分。">
+    <meta name="keywords" content="梦三国郭嘉出装,梦三国攻略,梦三国郭嘉加点,梦三国郭嘉出装顺序">
+    <title>梦三国郭嘉出装-梦三国郭嘉出装攻略与实战教学</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e1e4e8;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        main {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-lg);
+            border-left: 5px solid var(--accent-color);
+            padding-left: var(--spacing-md);
+            color: var(--primary-color);
+        }
+
+        /* Core Build Section */
+        .build-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .build-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: var(--spacing-lg);
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .build-card h2 {
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: #f1f3f5;
+            border-radius: 4px;
+            transition: transform 0.2s;
+        }
+
+        .item-row:hover {
+            transform: translateX(5px);
+            background: #e9ecef;
+        }
+
+        .item-name {
+            font-weight: 600;
+        }
+
+        .item-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            background: var(--card-bg);
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .skill-item {
+            display: flex;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            align-items: flex-start;
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background: #e0e0e0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #555;
+            flex-shrink: 0;
+        }
+
+        .skill-info h3 {
+            margin-bottom: 4px;
+        }
+
+        .skill-level {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Strategy Section */
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .strategy-card {
+            background: var(--card-bg);
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .strategy-card h3 {
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+
+        .strategy-card ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-light);
+        }
+
+        .strategy-card ul li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--card-bg);
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            margin-top: var(--spacing-lg);
+        }
+
+        details {
+            margin-bottom: var(--spacing-sm);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: var(--spacing-sm);
+        }
+
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        details[open] summary::after {
+            content: "-";
+        }
+
+        details p {
+            margin-top: var(--spacing-sm);
+            color: var(--text-light);
+            padding-left: 10px;
+            border-left: 2px solid #ddd;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            margin-top: var(--spacing-lg);
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: var(--spacing-md) 0;
+                gap: var(--spacing-md);
+            }
+
+            .build-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .item-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">梦三国<span>攻略</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">英雄图鉴</a></li>
+                    <li><a href="#">装备大全</a></li>
+                    <li><a href="#">视频教学</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>梦三国郭嘉出装</h1>
+            <p>掌控法术与控制的完美结合，从前期压制到后期团战收割，全方位解析郭嘉的出装思路与实战技巧。</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- 核心出装推荐 -->
+        <h2 class="section-title">核心出装推荐</h2>
+        <div class="build-grid">
+            <!-- 出装一：爆发流 -->
+            <article class="build-card">
+                <h2>⚡ 极致爆发流</h2>
+                <p style="margin-bottom: 15px; color: #666;">适合顺风局或急需秒杀敌方后排的局势。</p>
+                <div class="item-list">
+                    <div class="item-row">
+                        <span class="item-name">法神之靴</span>
+                        <span class="item-desc">增加移动速度与法术穿透，前期核心。</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">七宝龙王珠</span>
+                        <span class="item-desc">核心法术装，提供高额法术强度与冷却缩减。</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">玄武甲</span>
+                        <span class="item-desc">增加法强与护甲，开启护盾保证生存。</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">大禹神力铠</span>
+                        <span class="item-desc">提供护甲、法强与移动速度，成型装。</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">灵山神印</span>
+                        <span class="item-desc">提升法强与移动速度，增强机动性。</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">风神之翼</span>
+                        <span class="item-desc">大幅提升法强与冷却缩减，后期神装。</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 出装二：控制流 -->
+            <article class="build-card">
+                <h2>🛡️ 强力控制流</h2>
+                <p style="margin-bottom: 15px; color: #666;">适合逆风局或需要长时间控制敌方核心的局势。</p>
+                <div class="item-list">
+                    <div class="item-row">
+                        <span class="item-name">法神之靴</span>
+                        <span class="item-desc">基础法术装，保证前期技能命中。</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">七宝龙王珠</span>
+                        <span class="item-desc">核心输出装，保证伤害。</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">封魔印</span>
+                        <span class="item-desc">增加法强与法术穿透，有效克制魔免英雄。</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">玄武甲</span>
+                        <span class="item-desc">生存装，防止被瞬间秒杀。</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">大禹神力铠</span>
+                        <span class="item-desc">半肉半输出，提高容错率。</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">离火之盾</span>
+                        <span class="item-desc">提供高额法强与护甲，增加生存能力。</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- 技能加点 -->
+        <h2 class="section-title">技能加点顺序</h2>
+        <div class="skills-container">
+            <div class="skill-item">
+                <div class="skill-icon">1</div>
+                <div class="skill-info">
+                    <h3>鬼才·智谋 (被动)</h3>
+                    <span class="skill-level">优先加满</span>
+                    <p>郭嘉的核心技能，提升法术强度。开局必点，后期收益最高。</p>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">2</div>
+                <div class="skill-info">
+                    <h3>鬼才·惊雷</h3>
+                    <span class="skill-level">主升技能</span>
+                    <p>主要输出手段，造成范围法术伤害并减速。团战时用于消耗和切入。</p>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">3</div>
+                <div class="skill-info">
+                    <h3>鬼才·冰封</h3>
+                    <span class="skill-level">副升技能</span>
+                    <p>控制技能，对敌人造成伤害并使其沉默。关键时刻用于打断敌方技能。</p>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">4</div>
+                <div class="skill-info">
+                    <h3>鬼才·天谴 (大招)</h3>
+                    <span class="skill-level">有大点大</span>
+                    <p>瞬间爆发技能，对范围内的敌人造成巨额伤害。是收割残血和团战核心技能。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 实战策略 -->
+        <h2 class="section-title">实战对局思路</h2>
+        <div class="strategy-grid">
+            <article class="strategy-card">
+                <h3>前期发育</h3>
+                <ul>
+                    <li>利用“鬼才·惊雷”进行远程消耗，压制敌方血线。</li>
+                    <li>注意走位，避免被敌方近战英雄抓单。</li>
+                    <li>尽早做出“法神之靴”和“七宝龙王珠”，提升伤害。</li>
+                </ul>
+            </article>
+            <article class="strategy-card">
+                <h3>中期游走</h3>
+                <ul>
+                    <li>郭嘉拥有较强的控制能力，可以配合队友进行游走抓人。</li>
+                    <li>利用“鬼才·冰封”先手控制，接“鬼才·天谴”瞬间秒杀。</li>
+                    <li>注意观察小地图，防止被敌方打野绕后。</li>
+                </ul>
+            </article>
+            <article class="strategy-card">
+                <h3>后期团战</h3>
+                <ul>
+                    <li>团战时站位要靠后，利用技能进行远程消耗。</li>
+                    <li>等待敌方关键控制技能交出后，再开启大招进场收割。</li>
+                    <li>保留“鬼才·冰封”用于保护己方脆皮或控制敌方C位。</li>
+                </ul>
+            </article>
+        </div>
+
+        <!-- 常见问题 -->
+        <h2 class="section-title">常见问题 (FAQ)</h2>
+        <div class="faq-section">
+            <details>
+                <summary>郭嘉前期应该出什么装备？</summary>
+                <p>前期建议直接合成“法神之靴”，随后尽快做出“七宝龙王珠”或“封魔印”，以保证前期的技能伤害和穿透能力。</p>
+            </details>
+            <details>
+                <summary>郭嘉是走输出位还是控制位？</summary>
+                <p>郭嘉是一个兼具高爆发和强控制的法师英雄。通常情况下，我们选择以法术输出为主，控制为辅的打法，即“法术输出流”。</p>
+            </details>
+            <details>
+                <summary>逆风局郭嘉怎么出装？</summary>
+                <p>逆风局建议增加防御属性，例如先出“玄武甲”或“离火之盾”，选择“强力控制流”出装思路，保证自己的生存能力，再寻求机会通过技能消耗和控场来挽回局势。</p>
+            </details>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>本页面内容仅供参考，游戏版本更新可能导致装备属性变化。</p>
+            <p>&copy; 2023 梦三国攻略网. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
